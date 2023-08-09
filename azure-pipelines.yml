@@ -22,8 +22,7 @@ stages:
             displayName: 'Compile Javascript'
             inputs:
               targetType: "inline"
-              script: |
-                cd azure-pipelines 
+              script: 
                 tsc
           - task: Npm@1
             inputs:
@@ -43,13 +42,11 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: 'azure-pipelines' 
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
               targetType: "inline"
-              script: |
-                cd azure-pipelines 
+              script:
                 tsc
           - task: QueryAzureDevOpsExtensionVersion@4
             name: QueryVersion
