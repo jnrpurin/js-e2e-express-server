@@ -23,7 +23,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                cd .. # Update to the name of the directory of your task
+                cd .\azure-pipelines # Update to the name of the directory of your task
                 tsc
           - task: Npm@1
             inputs:
