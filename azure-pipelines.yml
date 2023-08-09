@@ -18,7 +18,6 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '/azure-pipelines'
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
@@ -29,7 +28,6 @@ stages:
           - task: Npm@1
             inputs:
               command: 'custom'
-              workingDir: '/azure-pipelines' 
               customCommand: 'test' # See the definition in the explanation section below - it may be called test
           - task: PublishTestResults@2
             inputs:
@@ -45,7 +43,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '/azure-pipelines' 
+              workingDir: 'azure-pipelines' 
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
