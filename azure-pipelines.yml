@@ -18,13 +18,25 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
+          
+          - checkout: none
+          - task: Bash@3
+            displayName: 'Check TypeScript version'
+            inputs:
+              targetType: "inline"
+              script: |
+                echo "Install TypeScript:"
+                npm install -g typescript
+                echo "Check TypeScript version:"
+                tsc --version
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
               targetType: "inline"
               script: |
-                - cd azure-pipelines # Update to the name of the directory of your task
-                tsc
+                echo "try to compile index ts"
+                # cd azure-pipelines ---- Update to the name of the directory of your task
+                tsc index.ts
           - task: Npm@1
             inputs:
               command: 'custom'
