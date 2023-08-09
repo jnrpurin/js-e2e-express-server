@@ -19,7 +19,7 @@ stages:
             inputs:
               command: 'install'
           - task: Bash@3
-            displayName: Compile Javascript
+            displayName: 'Compile Javascript'
             inputs:
               targetType: "inline"
               script: |
