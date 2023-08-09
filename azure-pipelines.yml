@@ -18,7 +18,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '$(Build.SourcesDirectory)/azure-pipelines/tests'
+              workingDir: '/azure-pipelines'
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
@@ -29,8 +29,8 @@ stages:
           - task: Npm@1
             inputs:
               command: 'custom'
-              workingDir: '$(Build.SourcesDirectory)/azure-pipelines/tests' 
-              customCommand: 'testScript' # See the definition in the explanation section below - it may be called test
+              workingDir: '/azure-pipelines' 
+              customCommand: 'test' # See the definition in the explanation section below - it may be called test
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: 'JUnit'
@@ -45,7 +45,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '$(Build.SourcesDirectory)/azure-pipelines/tests' 
+              workingDir: '/azure-pipelines' 
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
