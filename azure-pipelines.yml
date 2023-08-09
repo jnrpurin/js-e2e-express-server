@@ -19,10 +19,11 @@ stages:
             inputs:
               command: 'install'
           - task: Bash@3
-            displayName: 'Compile Javascript'
+            displayName: Compile Javascript
             inputs:
               targetType: "inline"
-              script: 
+              script: |
+                cd .. # Update to the name of the directory of your task
                 tsc
           - task: Npm@1
             inputs:
