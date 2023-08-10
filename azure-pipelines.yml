@@ -1,4 +1,5 @@
 trigger: 
+
 - main
 
 pool:
@@ -20,3 +21,13 @@ steps:
     inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/TEST-RESULTS*.xml'
+      
+  - task: TfxInstaller@4
+    inputs:
+      version: 'v0.x'
+
+
+
+  - task: GovernanceV1@0
+    inputs:
+      samplestring: "Tsuru"
